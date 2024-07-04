@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
   <style>
     body { margin: 0; }
-    video, canvas { position: absolute; top: 0; left: 0; }
+    video, canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
   </style>
 </head>
 <body>
@@ -30,8 +30,8 @@
     });
 
     hands.onResults((results) => {
-      canvasElement.width = results.image.width;
-      canvasElement.height = results.image.height;
+      canvasElement.width = videoElement.videoWidth;
+      canvasElement.height = videoElement.videoHeight;
 
       canvasCtx.save();
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
